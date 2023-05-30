@@ -20,7 +20,9 @@ func SelectionSort(s []int) []int {
 		}
 
 		// Swap lowest value with first value in passthrough
-		sCopy[startIndex], sCopy[lowestIndex] = sCopy[lowestIndex], sCopy[startIndex]
+		if startIndex != lowestIndex {
+			sCopy[startIndex], sCopy[lowestIndex] = sCopy[lowestIndex], sCopy[startIndex]
+		}
 	}
 	return sCopy
 }
