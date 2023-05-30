@@ -10,16 +10,20 @@ func BubbleSort(s []int) []int {
 	sCopy := make([]int, len(s))
 	copy(sCopy, s)
 
+	sortedUntilIndex := len(sCopy) - 1
 	// Loop until a passthrough has no swap
 	for {
 		noSwap := false
-		for i := 0; i < len(sCopy)-1; i++ {
+		for i := 0; i < sortedUntilIndex; i++ {
 			// Swap when number on left is bigger than number on right
 			if sCopy[i] > sCopy[i+1] {
 				sCopy[i], sCopy[i+1] = sCopy[i+1], sCopy[i]
 				noSwap = true
 			}
 		}
+		// Last number in a passthrough is already sorted
+		sortedUntilIndex -= 1
+
 		if !noSwap {
 			break
 		}
